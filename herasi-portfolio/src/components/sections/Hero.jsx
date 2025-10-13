@@ -1,15 +1,34 @@
 'use client'
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import gsap from 'gsap';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [greeting, setGreeting] = useState('');
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
   const descriptionRef = useRef(null);
   const ctaRef = useRef(null);
+  
+  useEffect(() => {
+    // Obtener saludo según la hora
+    const hour = new Date().getHours();
+    let timeOfDay;
+    
+    if (hour >= 5 && hour < 12) {
+      timeOfDay = 'morning';
+    } else if (hour >= 12 && hour < 18) {
+      timeOfDay = 'afternoon';
+    } else if (hour >= 18 && hour < 22) {
+      timeOfDay = 'evening';
+    } else {
+      timeOfDay = 'night';
+    }
+    
+    setGreeting(content.hero.greeting[timeOfDay][language]);
+  }, [language]);
   
   useEffect(() => {
     // Animaciones de entrada con GSAP
@@ -74,7 +93,7 @@ export default function Hero() {
         zIndex: 10,
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '0 24px',
+        padding: '30px 24px 0',
         width: '100%'
       }}>
         <div style={{ maxWidth: '900px' }}>
@@ -90,7 +109,7 @@ export default function Hero() {
               letterSpacing: '1px'
             }}
           >
-            👋 {t(content.hero.greeting)}
+            👋 {greeting}
           </p>
 
           {/* Main Title with Gradient */}
@@ -114,7 +133,6 @@ export default function Hero() {
 
           {/* Subtitle */}
           <h2
-            ref={subtitleRef}
             style={{
               fontSize: 'clamp(24px, 4vw, 40px)',
               fontWeight: '700',

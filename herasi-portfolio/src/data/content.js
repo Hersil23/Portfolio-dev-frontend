@@ -8,24 +8,25 @@ export const content = {
   },
   
   hero: {
-    greeting: { 
-      en: "Hey, Good Afternoon", 
-      es: "Hola, Buenas Tardes" 
-    },
-    title: {
-      en: "Frontend Developer",
-      es: "Desarrollador Frontend"
-    },
-    intro: { 
-      en: "I'm Herasi Silva, a Frontend Developer building efficient and scalable web systems. Currently learning Full Stack development.", 
-      es: "Soy Herasi Silva, un Desarrollador Frontend construyendo sistemas web eficientes y escalables. Actualmente aprendiendo desarrollo Full Stack." 
-    },
-    cta: { 
-      en: "View My Work", 
-      es: "Ver Mi Trabajo" 
-    }
+  greeting: {
+    morning: { en: "Good Morning", es: "Buenos Días" },
+    afternoon: { en: "Good Afternoon", es: "Buenas Tardes" },
+    evening: { en: "Good Evening", es: "Buenas Noches" },
+    night: { en: "Good Night", es: "Buenas Noches" }
   },
-  
+  title: {
+    en: "Frontend Developer",
+    es: "Desarrollador Frontend"
+  },
+  intro: { 
+    en: "I'm Herasi Silva, a Frontend Developer building efficient and scalable web systems. Currently learning Full Stack development.", 
+    es: "Soy Herasi Silva, un Desarrollador Frontend construyendo sistemas web eficientes y escalables. Actualmente aprendiendo desarrollo Full Stack." 
+  },
+  cta: { 
+    en: "View My Work", 
+    es: "Ver Mi Trabajo" 
+  }
+},
   about: {
     title: { en: "About Me", es: "Sobre Mí" },
     subtitle: {

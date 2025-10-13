@@ -1,6 +1,7 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const outfit = Outfit({ 
   subsets: ["latin"],
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={outfit.className}>
+        <CustomCursor />
         <LanguageProvider>
           {children}
         </LanguageProvider>

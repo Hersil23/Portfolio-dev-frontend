@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import { FiGlobe, FiMenu, FiX } from 'react-icons/fi';
+import { USFlag, ESFlag } from './FlagIcons';
 
 export default function Navbar() {
   const { language, toggleLanguage, t } = useLanguage();
@@ -159,7 +160,7 @@ export default function Navbar() {
                         position: 'absolute',
                         right: 0,
                         marginTop: '8px',
-                        width: '140px',
+                        width: '160px',
                         background: '#151E2D',
                         border: '1px solid rgba(56, 189, 248, 0.2)',
                         borderRadius: '12px',
@@ -183,12 +184,16 @@ export default function Navbar() {
                           border: 'none',
                           cursor: 'pointer',
                           transition: 'background 0.3s ease',
-                          fontWeight: '500'
+                          fontWeight: '500',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px'
                         }}
                         onMouseEnter={(e) => e.target.style.background = 'rgba(56, 189, 248, 0.1)'}
                         onMouseLeave={(e) => e.target.style.background = language === 'en' ? 'rgba(56, 189, 248, 0.2)' : 'transparent'}
                       >
-                        🇺🇸 English
+                        <USFlag />
+                        <span>English</span>
                       </button>
                       <button
                         onClick={() => {
@@ -205,12 +210,16 @@ export default function Navbar() {
                           border: 'none',
                           cursor: 'pointer',
                           transition: 'background 0.3s ease',
-                          fontWeight: '500'
+                          fontWeight: '500',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px'
                         }}
                         onMouseEnter={(e) => e.target.style.background = 'rgba(56, 189, 248, 0.1)'}
                         onMouseLeave={(e) => e.target.style.background = language === 'es' ? 'rgba(56, 189, 248, 0.2)' : 'transparent'}
                       >
-                        🇪🇸 Español
+                        <ESFlag />
+                        <span>Español</span>
                       </button>
                     </div>
                   )}
@@ -236,88 +245,70 @@ export default function Navbar() {
       </nav>
 
       {mobileMenuOpen && (
-        <>
-          <div
-            onClick={() => setMobileMenuOpen(false)}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'rgba(0, 0, 0, 0.7)',
-              zIndex: 45,
-              animation: 'fadeIn 0.3s ease'
-            }}
-          />
-          
-          <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              width: '280px',
-              maxWidth: '80vw',
-              background: 'rgba(11, 17, 32, 0.98)',
-              backdropFilter: 'blur(20px)',
-              zIndex: 50,
-              padding: '80px 32px 32px',
-              borderLeft: '1px solid rgba(56, 189, 248, 0.2)',
-              animation: 'slideInRight 0.3s ease',
-              boxShadow: '-10px 0 50px rgba(0, 0, 0, 0.5)'
-            }}
-          >
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-              {navItems.map((item) => (
-                <li key={item.id} style={{ marginBottom: '24px' }}>
-                  <button
-                    onClick={() => {
-                      setActiveSection(item.id);
-                      scrollToSection(item.href);
-                    }}
-                    style={{
-                      width: '100%',
-                      textAlign: 'left',
-                      fontSize: '20px',
-                      fontWeight: '600',
-                      color: activeSection === item.id ? '#38BDF8' : '#E5E7EB',
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer',
-                      padding: '12px 0',
-                      transition: 'all 0.3s ease',
-                      borderBottom: '1px solid rgba(56, 189, 248, 0.1)'
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
+        <div
+          style={{
+            position: 'fixed',
+            top: '100px',
+            right: '24px',
+            width: '200px',
+            background: '#151E2D',
+            border: '1px solid rgba(56, 189, 248, 0.2)',
+            borderRadius: '12px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+            overflow: 'hidden',
+            zIndex: 100,
+            animation: 'slideDown 0.3s ease'
+          }}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => {
+                setActiveSection(item.id);
+                scrollToSection(item.href);
+              }}
+              style={{
+                width: '100%',
+                padding: '14px 20px',
+                textAlign: 'left',
+                fontSize: '15px',
+                fontWeight: '500',
+                color: activeSection === item.id ? '#38BDF8' : '#9CA3AF',
+                background: activeSection === item.id ? 'rgba(56, 189, 248, 0.1)' : 'transparent',
+                border: 'none',
+                borderBottom: '1px solid rgba(56, 189, 248, 0.1)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(56, 189, 248, 0.1)';
+                e.target.style.color = '#38BDF8';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = activeSection === item.id ? 'rgba(56, 189, 248, 0.1)' : 'transparent';
+                e.target.style.color = activeSection === item.id ? '#38BDF8' : '#9CA3AF';
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
       )}
 
       <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes slideInRight {
+        @keyframes slideDown {
           from {
             opacity: 0;
-            transform: translateX(100%);
+            transform: translateY(-10px);
           }
           to {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
           }
         }
 
         .logo-img {
-          height: 70px;
+          height: 80px;
           width: auto;
           object-fit: contain;
         }
