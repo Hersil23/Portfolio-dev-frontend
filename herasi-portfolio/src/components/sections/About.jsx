@@ -67,7 +67,7 @@ export default function About() {
     
   }, []);
 
-  const skills = ['React', 'Next.js', 'Tailwind', 'GSAP', 'JavaScript', 'WordPress', 'HTML5', 'CSS3'];
+  const skills = ['Tailwind', 'JavaScript', 'React', 'Next.js'];
 
   return (
     <section 
@@ -89,7 +89,7 @@ export default function About() {
 
             <h3 ref={subtitleRef} className="about-subtitle">
               Frontend Developer 
-              <span className="about-highlight"> → Full Stack</span>
+              
             </h3>
 
             <p ref={descriptionRef} className="about-description">

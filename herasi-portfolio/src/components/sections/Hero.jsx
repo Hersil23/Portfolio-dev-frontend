@@ -212,61 +212,61 @@ export default function Hero() {
 
       {/* Styles */}
       <style jsx>{`
-  .grid-3d-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    perspective: 800px;
-    overflow: hidden;
-    z-index: 1;
-  }
+        .grid-3d-container {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          perspective: 800px;
+          overflow: hidden;
+          z-index: 1;
+        }
 
-  .grid-3d {
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    top: -100%;
-    left: -100%;
-    background-image: 
-      linear-gradient(rgba(56, 189, 248, 0.3) 2px, transparent 2px),
-      linear-gradient(90deg, rgba(56, 189, 248, 0.3) 2px, transparent 2px);
-    background-size: 80px 80px;
-    transform: rotateX(65deg) translateZ(-300px);
-    animation: gridMove 25s linear infinite;
-  }
+        .grid-3d {
+          position: absolute;
+          width: 300%;
+          height: 300%;
+          top: -100%;
+          left: -100%;
+          background-image: 
+            linear-gradient(rgba(56, 189, 248, 0.3) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(56, 189, 248, 0.3) 2px, transparent 2px);
+          background-size: 80px 80px;
+          transform: rotateX(65deg) translateZ(-300px);
+          animation: gridMove 25s linear infinite;
+        }
 
-  .grid-3d::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      circle at center,
-      rgba(56, 189, 248, 0.15) 0%,
-      transparent 70%
-    );
-  }
+        .grid-3d::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(
+            circle at center,
+            rgba(56, 189, 248, 0.15) 0%,
+            transparent 70%
+          );
+        }
 
-  @keyframes gridMove {
-    0% {
-      transform: rotateX(65deg) translateZ(-300px) translateY(0);
-    }
-    100% {
-      transform: rotateX(65deg) translateZ(-300px) translateY(80px);
-    }
-  }
+        @keyframes gridMove {
+          0% {
+            transform: rotateX(65deg) translateZ(-300px) translateY(0);
+          }
+          100% {
+            transform: rotateX(65deg) translateZ(-300px) translateY(80px);
+          }
+        }
 
-  @media (max-width: 768px) {
-    .grid-3d {
-      background-size: 50px 50px;
-      background-image: 
-        linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
-    }
-  }
-`}</style>
+        @media (max-width: 768px) {
+          .grid-3d {
+            background-size: 50px 50px;
+            background-image: 
+              linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+          }
+        }
+      `}</style>
     </section>
   );
 }
