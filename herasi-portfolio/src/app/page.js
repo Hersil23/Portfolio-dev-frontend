@@ -3,6 +3,7 @@ import Navbar from '@/components/ui/Navbar';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import TechStack from '@/components/sections/TechStack';
+import Projects from '@/components/sections/Projects';
 
 export default function Home() {
   return (
@@ -18,9 +19,7 @@ export default function Home() {
 
       <TechStack />
 
-      <section id="projects" className="min-h-screen flex items-center justify-center bg-bg-secondary">
-        <h2 className="text-5xl font-bold text-accent-primary">PROJECTS SECTION</h2>
-      </section>
+     <Projects />
 
       <section id="contact" className="min-h-screen flex items-center justify-center">
         <h2 className="text-5xl font-bold text-accent-primary">CONTACT SECTION</h2>

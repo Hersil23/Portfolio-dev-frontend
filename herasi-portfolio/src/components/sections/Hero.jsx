@@ -218,7 +218,7 @@ export default function Hero() {
           height: 100%;
           top: 0;
           left: 0;
-          perspective: 800px;
+          perspective: 600px;
           overflow: hidden;
           z-index: 1;
         }
@@ -230,11 +230,11 @@ export default function Hero() {
           top: -100%;
           left: -100%;
           background-image: 
-            linear-gradient(rgba(56, 189, 248, 0.3) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(56, 189, 248, 0.3) 2px, transparent 2px);
-          background-size: 80px 80px;
-          transform: rotateX(65deg) translateZ(-300px);
-          animation: gridMove 25s linear infinite;
+            linear-gradient(rgba(56, 189, 248, 0.4) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(56, 189, 248, 0.4) 2px, transparent 2px);
+          background-size: 60px 60px;
+          transform: rotateX(70deg) translateZ(-400px) translateY(0);
+          animation: gridMove 20s linear infinite;
         }
 
         .grid-3d::before {
@@ -251,19 +251,19 @@ export default function Hero() {
 
         @keyframes gridMove {
           0% {
-            transform: rotateX(65deg) translateZ(-300px) translateY(0);
+            transform: rotateX(70deg) translateZ(-400px) translateY(0);
           }
           100% {
-            transform: rotateX(65deg) translateZ(-300px) translateY(80px);
+            transform: rotateX(70deg) translateZ(-400px) translateY(60px);
           }
         }
 
         @media (max-width: 768px) {
           .grid-3d {
-            background-size: 50px 50px;
+            background-size: 40px 40px;
             background-image: 
-              linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+              linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px);
           }
         }
       `}</style>
