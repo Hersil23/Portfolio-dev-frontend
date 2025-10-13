@@ -4,6 +4,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { content } from '@/data/content';
 import { FiGlobe, FiMenu, FiX } from 'react-icons/fi';
 import { USFlag, ESFlag } from './FlagIcons';
+import Image from 'next/image';
 
 export default function Navbar() {
   const { language, toggleLanguage, t } = useLanguage();
@@ -84,11 +85,20 @@ export default function Navbar() {
                   alignItems: 'center'
                 }}
               >
-                <img 
+              <Image 
                   src="/images/herasi-logo.png" 
                   alt="Herasi Silva Logo"
-                  className="logo-img"
+                  width={100}
+                  height={80}
+                  priority
                 />
+                <style>
+                  {`
+                    .logo-img {
+                      object-fit: contain;
+                    }
+                  `}
+                </style>
               </div>
 
               <ul style={{ 

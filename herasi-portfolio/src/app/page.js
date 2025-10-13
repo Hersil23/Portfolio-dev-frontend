@@ -1,6 +1,7 @@
 'use client'
 import Navbar from '@/components/ui/Navbar';
 import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
 
 export default function Home() {
   return (
@@ -12,9 +13,7 @@ export default function Home() {
       <Hero />
 
       {/* Secciones temporales para probar el scroll */}
-      <section id="about" className="min-h-screen flex items-center justify-center bg-bg-secondary">
-        <h2 className="text-5xl font-bold text-accent-primary">ABOUT SECTION</h2>
-      </section>
+      <About />
 
       <section id="tech" className="min-h-screen flex items-center justify-center">
         <h2 className="text-5xl font-bold text-accent-primary">TECH SECTION</h2>
