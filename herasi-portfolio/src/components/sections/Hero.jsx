@@ -103,7 +103,7 @@ export default function Hero() {
         <div className="grid-3d"></div>
       </div>
 
-      {/* Content - TODO CENTRADO */}
+      {/* Content */}
       <div style={{ 
         position: 'relative', 
         zIndex: 10,
