@@ -14,7 +14,6 @@ export default function Hero() {
   const ctaRef = useRef(null);
   
   useEffect(() => {
-    // Obtener saludo según la hora
     const hour = new Date().getHours();
     let timeOfDay;
     
@@ -32,7 +31,6 @@ export default function Hero() {
   }, [language]);
   
   useEffect(() => {
-    // Animaciones de entrada SOLO UNA VEZ
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     
     tl.from(greetingRef.current, {
@@ -69,7 +67,6 @@ export default function Hero() {
       ease: 'back.out(1.5)'
     }, '-=0.4');
 
-    // Animación continua SOLO del gradiente del texto
     gsap.to('.gradient-text', {
       backgroundPosition: '200% center',
       duration: 3,
@@ -86,158 +83,156 @@ export default function Hero() {
   };
 
   return (
-    <section 
-      id="home"
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        background: '#0B1120'
-      }}
-    >
-      {/* Grid 3D Background */}
-      <div className="grid-3d-container">
-        <div className="grid-3d"></div>
-      </div>
-
-      {/* Content */}
-      <div style={{ 
-        position: 'relative', 
-        zIndex: 10,
-        maxWidth: '1000px',
-        margin: '0 auto',
-        padding: '100px 24px 0',
-        width: '100%',
-        textAlign: 'center'
-      }}>
-        
-        {/* Greeting */}
-        <p 
-          ref={greetingRef}
+    <>
+      <section 
+        id="home"
+        style={{
+          position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          background: '#0B1120'
+        }}
+      >
+        {/* Grid 3D Background */}
+        <div 
           style={{
-            fontSize: '18px',
-            fontWeight: '500',
-            color: '#9CA3AF',
-            marginBottom: '16px',
-            letterSpacing: '1px'
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            perspective: '600px',
+            overflow: 'hidden',
+            zIndex: 1
           }}
         >
-          👋 {greeting}
-        </p>
+          <div 
+            className="hero-grid-3d"
+            style={{
+              position: 'absolute',
+              width: '400%',
+              height: '400%',
+              top: '-150%',
+              left: '-150%',
+              backgroundImage: 'linear-gradient(rgba(56, 189, 248, 0.5) 2px, transparent 2px), linear-gradient(90deg, rgba(56, 189, 248, 0.5) 2px, transparent 2px)',
+              backgroundSize: '70px 70px'
+            }}
+          />
+        </div>
 
-        {/* Main Title with Gradient */}
-        <h1 
-          ref={titleRef}
-          className="gradient-text"
-          style={{
-            fontSize: 'clamp(40px, 8vw, 80px)',
-            fontWeight: '800',
-            lineHeight: '1.1',
-            marginBottom: '24px',
-            background: 'linear-gradient(90deg, #38BDF8, #7DD3FC, #38BDF8)',
-            backgroundSize: '200% auto',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}
-        >
-          I'm Herasi Silva
-        </h1>
+        {/* Content */}
+        <div style={{ 
+          position: 'relative', 
+          zIndex: 10,
+          maxWidth: '1000px',
+          margin: '0 auto',
+          padding: '100px 24px 0',
+          width: '100%',
+          textAlign: 'center'
+        }}>
+          
+          <p 
+            ref={greetingRef}
+            style={{
+              fontSize: '18px',
+              fontWeight: '500',
+              color: '#9CA3AF',
+              marginBottom: '16px',
+              letterSpacing: '1px'
+            }}
+          >
+            👋 {greeting}
+          </p>
 
-        {/* Subtitle */}
-        <h2
-          ref={subtitleRef}
-          style={{
-            fontSize: 'clamp(24px, 4vw, 40px)',
-            fontWeight: '700',
-            color: '#E5E7EB',
-            marginBottom: '24px'
-          }}
-        >
-          {t(content.hero.title)}
-          <span style={{ 
-            color: '#38BDF8',
-            fontWeight: '800'
-          }}> → Full Stack</span>
-        </h2>
+          <h1 
+            ref={titleRef}
+            className="gradient-text"
+            style={{
+              fontSize: 'clamp(40px, 8vw, 80px)',
+              fontWeight: '800',
+              lineHeight: '1.1',
+              marginBottom: '24px',
+              background: 'linear-gradient(90deg, #38BDF8, #7DD3FC, #38BDF8)',
+              backgroundSize: '200% auto',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
+            I'm Herasi Silva
+          </h1>
 
-        {/* Description */}
-        <p 
-          ref={descriptionRef}
-          style={{
-            fontSize: 'clamp(16px, 2vw, 20px)',
-            color: '#9CA3AF',
-            lineHeight: '1.7',
-            maxWidth: '700px',
-            margin: '0 auto 40px',
-          }}
-        >
-          {t(content.hero.intro)}
-        </p>
+          <h2
+            ref={subtitleRef}
+            style={{
+              fontSize: 'clamp(24px, 4vw, 40px)',
+              fontWeight: '700',
+              color: '#E5E7EB',
+              marginBottom: '24px'
+            }}
+          >
+            {t(content.hero.title)}
+            <span style={{ 
+              color: '#38BDF8',
+              fontWeight: '800'
+            }}> → Full Stack</span>
+          </h2>
 
-        {/* CTA Button */}
-        <button
-          ref={ctaRef}
-          onClick={scrollToProjects}
-          style={{
-            padding: '16px 40px',
-            fontSize: '16px',
-            fontWeight: '600',
-            color: '#0B1120',
-            background: '#38BDF8',
-            border: 'none',
-            borderRadius: '12px',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 0 30px rgba(56, 189, 248, 0.3)',
-            letterSpacing: '0.5px'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = '#0EA5E9';
-            e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 10px 40px rgba(56, 189, 248, 0.5)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = '#38BDF8';
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.3)';
-          }}
-        >
-          {t(content.hero.cta)} ↓
-        </button>
-      </div>
+          <p 
+            ref={descriptionRef}
+            style={{
+              fontSize: 'clamp(16px, 2vw, 20px)',
+              color: '#9CA3AF',
+              lineHeight: '1.7',
+              maxWidth: '700px',
+              margin: '0 auto 40px',
+            }}
+          >
+            {t(content.hero.intro)}
+          </p>
 
-      {/* Styles */}
-      <style jsx>{`
-        .grid-3d-container {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          perspective: 500px;
-          overflow: hidden;
-          z-index: 1;
-        }
+          <button
+            ref={ctaRef}
+            onClick={scrollToProjects}
+            style={{
+              padding: '16px 40px',
+              fontSize: '16px',
+              fontWeight: '600',
+              color: '#0B1120',
+              background: '#38BDF8',
+              border: 'none',
+              borderRadius: '12px',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 0 30px rgba(56, 189, 248, 0.3)',
+              letterSpacing: '0.5px'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = '#0EA5E9';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 10px 40px rgba(56, 189, 248, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = '#38BDF8';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.3)';
+            }}
+          >
+            {t(content.hero.cta)} ↓
+          </button>
+        </div>
+      </section>
 
-        .grid-3d {
-          position: absolute;
-          width: 400%;
-          height: 400%;
-          top: -150%;
-          left: -150%;
-          background-image: 
-            linear-gradient(rgba(56, 189, 248, 0.5) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(56, 189, 248, 0.5) 2px, transparent 2px);
-          background-size: 70px 70px;
+      <style jsx global>{`
+        .hero-grid-3d {
           transform: rotateX(75deg) translateZ(-500px);
-          animation: gridMove 20s linear infinite;
+          animation: heroGridMove 20s linear infinite;
         }
 
-        .grid-3d::before {
+        .hero-grid-3d::before {
           content: '';
           position: absolute;
           width: 100%;
@@ -249,7 +244,7 @@ export default function Hero() {
           );
         }
 
-        @keyframes gridMove {
+        @keyframes heroGridMove {
           0% {
             transform: rotateX(75deg) translateZ(-500px) translateY(0);
           }
@@ -257,16 +252,7 @@ export default function Hero() {
             transform: rotateX(75deg) translateZ(-500px) translateY(70px);
           }
         }
-
-        @media (max-width: 768px) {
-          .grid-3d {
-            background-size: 40px 40px;
-            background-image: 
-              linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px);
-          }
-        }
       `}</style>
-    </section>
+    </>
   );
 }
