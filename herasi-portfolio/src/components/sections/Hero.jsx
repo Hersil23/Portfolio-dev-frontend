@@ -218,22 +218,22 @@ export default function Hero() {
           height: 100%;
           top: 0;
           left: 0;
-          perspective: 600px;
+          perspective: 500px;
           overflow: hidden;
           z-index: 1;
         }
 
         .grid-3d {
           position: absolute;
-          width: 300%;
-          height: 300%;
-          top: -100%;
-          left: -100%;
+          width: 400%;
+          height: 400%;
+          top: -150%;
+          left: -150%;
           background-image: 
-            linear-gradient(rgba(56, 189, 248, 0.4) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(56, 189, 248, 0.4) 2px, transparent 2px);
-          background-size: 60px 60px;
-          transform: rotateX(70deg) translateZ(-400px) translateY(0);
+            linear-gradient(rgba(56, 189, 248, 0.5) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(56, 189, 248, 0.5) 2px, transparent 2px);
+          background-size: 70px 70px;
+          transform: rotateX(75deg) translateZ(-500px);
           animation: gridMove 20s linear infinite;
         }
 
@@ -244,17 +244,17 @@ export default function Hero() {
           height: 100%;
           background: radial-gradient(
             circle at center,
-            rgba(56, 189, 248, 0.15) 0%,
-            transparent 70%
+            rgba(56, 189, 248, 0.2) 0%,
+            transparent 60%
           );
         }
 
         @keyframes gridMove {
           0% {
-            transform: rotateX(70deg) translateZ(-400px) translateY(0);
+            transform: rotateX(75deg) translateZ(-500px) translateY(0);
           }
           100% {
-            transform: rotateX(70deg) translateZ(-400px) translateY(60px);
+            transform: rotateX(75deg) translateZ(-500px) translateY(70px);
           }
         }
 
